@@ -1,0 +1,177 @@
+' {$STAMP BS2}
+' {$PBASIC 2.0}
+pulseCount VAR Byte
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 21
+  PULSOUT 13, 650 '1.3ms'
+  PULSOUT 12, 650 '1.3ms'
+  PAUSE 20
+
+  '20+2.6+1.6ms
+  '24.2
+  '0.5/24.2ms
+  '20.66
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 21
+  PULSOUT 13, 650 '1.3ms'
+  PULSOUT 12, 650 '1.3ms'
+  PAUSE 20
+
+  '20+2.6+1.6ms
+  '24.2
+  '0.5/24.2ms
+  '20.66
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 20
+  PULSOUT 13, 650 '1.3ms'
+  PULSOUT 12, 650 '1.3ms'
+  PAUSE 20
+
+  '20+2.6+1.6ms
+  '24.2
+  '0.5/24.2ms
+  '20.66
+NEXT
+
+PAUSE 200
+
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 20
+  PULSOUT 13, 650 '1.3ms'
+  PULSOUT 12, 650 '1.3ms'
+  PAUSE 20
+
+  '20+2.6+1.6ms
+  '24.2
+  '0.5/24.2ms
+  '20.66
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 20
+  PULSOUT 13, 650 '1.3ms'
+  PULSOUT 12, 650 '1.3ms'
+  PAUSE 20
+
+  '20+2.6+1.6ms
+  '24.2
+  '0.5/24.2ms
+  '20.66
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 20
+  PULSOUT 13, 850 '1.7ms
+  PULSOUT 12, 850 '1.7ms
+  PAUSE 20
+
+  '20+1.6+ 3.4
+  '0.5/0.025
+
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 20
+  PULSOUT 13, 850 '1.7ms
+  PULSOUT 12, 850 '1.7ms
+  PAUSE 20
+
+  '20+1.6+ 3.4
+  '0.5/0.025
+
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 20
+  PULSOUT 13, 850 '1.7ms
+  PULSOUT 12, 850 '1.7ms
+  PAUSE 20
+
+  '20+1.6+ 3.4
+  '0.5/0.025
+
+NEXT
+
+PAUSE 200
+
+FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+  PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+  PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+  PAUSE 20 ' Pause for 20 ms.
+  'mov forward around 1ft
+NEXT
+
+PAUSE 200

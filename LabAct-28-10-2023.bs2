@@ -1,0 +1,62 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+
+
+
+
+  'DEBUG "Hello "
+  'HIGH 13
+  'LOW 12
+  'PAUSE 500
+  'LOW 13
+  'HIGH 12
+  'DEBUG "World", CR
+  'PAUSE 500
+
+
+  'PULSOUT 13, 750
+  'PAUSE 500
+  'PULSOUT 12, 750
+  'PAUSE 500
+
+  'FREQOUT 4, 1000, 3000
+  'DEBUG CR, "Waiting for reset…"
+  'PAUSE 500
+
+reps VAR Word
+
+DO WHILE(reps < 990)
+  PULSOUT 13, 700
+  PULSOUT 12, 800
+  reps = reps + 1
+LOOP
+
+PAUSE 300
+reps = 0
+
+DO WHILE(reps < 120)
+  PULSOUT 13, 650
+  PULSOUT 12, 650
+  reps = reps + 1
+LOOP
+
+PAUSE 300
+reps = 0
+
+DO WHILE(reps < 330)
+  PULSOUT 13, 700
+  PULSOUT 12, 800
+  reps = reps + 1
+LOOP
+
+reps = 0
+PAUSE 300
+
+DO WHILE(reps < 120)
+  PULSOUT 13, 650
+  PULSOUT 12, 650
+  reps = reps + 1
+LOOP
+
+END

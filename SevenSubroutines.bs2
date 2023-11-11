@@ -1,0 +1,121 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+'Seven subroutines
+
+pulseCount VAR Byte
+DO
+  IF(IN1 = 0) THEN
+    PAUSE 50
+    IF(IN1 = 1) THEN
+      GOSUB sub_forward
+      PAUSE 500
+      GOSUB sub_backward
+      PAUSE 500
+      GOSUB sub_stop
+      PAUSE 500
+      GOSUB sub_pivot_left
+      PAUSE 500
+      GOSUB sub_pivot_right
+      PAUSE 500
+      GOSUB sub_left
+      PAUSE 500
+      GOSUB sub_right
+      PAUSE 500
+      GOSUB sub_turn_around
+      PAUSE 500
+      GOSUB sub_ramp_up
+      PAUSE 500
+      GOSUB sub_ramp_down
+      PAUSE 500
+    ENDIF
+  ENDIF
+LOOP
+
+sub_forward:
+  FOR pulseCount = 1 TO 41 'forward for 1 sec'
+    PULSOUT 13, 850
+    PULSOUT 12, 650
+    PAUSE 20
+  NEXT
+  PAUSE 200
+  RETURN
+
+sub_backward:
+  FOR pulseCount = 1 TO 41 'backward for 1 sec'
+    PULSOUT 13, 650
+    PULSOUT 12, 850
+    PAUSE 20
+  NEXT
+  PAUSE 200
+  RETURN
+
+sub_right:
+  FOR pulseCount = 1 TO 40 'right rotate for 1 sec'
+    PULSOUT 13, 850
+    PULSOUT 12, 850
+    PAUSE 20
+  NEXT
+  PAUSE 200
+  RETURN
+
+sub_left:
+  FOR pulseCount = 1 TO 31 'left rotate for 1 sec'
+    PULSOUT 13, 650
+    PULSOUT 12, 650
+    PAUSE 20
+  NEXT
+  PAUSE 200
+  RETURN
+
+sub_stop: 'stop'
+  PULSOUT 13, 750
+  PULSOUT 12, 750
+  PAUSE 200
+  RETURN
+
+sub_pivot_right: 'pivot right for 1 sec'
+  FOR pulseCount = 1 TO 31
+    PULSOUT 13, 850
+    PULSOUT 12, 750
+    PAUSE 20
+  NEXT
+  PAUSE 200
+  RETURN
+
+sub_pivot_left: 'pivot right for 1 sec'
+  FOR pulseCount = 1 TO 31
+    PULSOUT 13, 750
+    PULSOUT 12, 850
+    PAUSE 20
+  NEXT
+  PAUSE 200
+  RETURN
+
+sub_turn_around:
+  FOR pulseCount = 1 TO 60 '180 degree turn'
+    PULSOUT 13, 850
+    PULSOUT 12, 850
+    PAUSE 20
+  NEXT
+  PAUSE 200
+  RETURN
+
+sub_ramp_up:
+  FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+    PULSOUT 13, 750 + pulseCount ' Pulse = 1.5 ms + pulseCount.
+    PULSOUT 12, 750 - pulseCount ' Pulse = 1.5 ms – pulseCount.
+    PAUSE 20 ' Pause for 20 ms.
+    'mov forward around 1ft
+  NEXT
+  PAUSE 200
+  RETURN
+
+  sub_ramp_down:
+  FOR pulseCount = 1 TO 100 ' Loop ramps up for 100 pulses.
+    PULSOUT 13, 850 - pulseCount ' Pulse = 1.5 ms + pulseCount.
+    PULSOUT 12, 650 + pulseCount ' Pulse = 1.5 ms – pulseCount.
+    PAUSE 20 ' Pause for 20 ms.
+    'mov forward around 1ft
+  NEXT
+  PAUSE 200
+  RETURN

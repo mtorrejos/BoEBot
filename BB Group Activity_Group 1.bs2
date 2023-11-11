@@ -1,0 +1,60 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+counter VAR Byte
+
+FOR counter = 1 TO 120
+
+  PULSOUT 13, 850      '(1.7us)
+  PULSOUT 12, 850      '(1.7us)
+  PAUSE 20
+  '(3.4ms)
+  '(+1.6ms)
+  '(+20ms)
+  'pulsecount = (3s / 20ms + 3.4ms + 1.6ms)
+  'pulsecount = 120
+
+NEXT
+
+FOR counter = 1 TO 124
+
+  PULSOUT 13, 650      '(1.3us)
+  PULSOUT 12, 650      '(1.3us)
+  PAUSE 20
+  '(20+1.6+2.6ms)
+  '(+1.6ms)
+  'pulsecount = (3s / 20ms + 2.6ms + 1.6ms)
+  'pulsecount = 123.96
+  '124
+
+NEXT
+
+FOR counter = 1 TO 122
+
+  PULSOUT 13, 850      '(1.7us)
+  PULSOUT 12, 650      '(1.3us)
+  PAUSE 20
+  '(20+1.6+3ms)
+  'pulsecount = (3s / 20ms + 3ms + 1.6ms)
+  'pulsecount = 121.95
+  '122
+
+NEXT
+
+FOR counter = 1 TO 122
+
+  PULSOUT 13, 650      '(1.3us)
+  PULSOUT 12, 850      '(1.7us)
+  PAUSE 20
+  '(20+1.6+3ms)
+  'pulsecount = (3s / 20ms + 3ms + 1.6ms)
+  'pulsecount = 121.95
+  '122
+
+NEXT
+
+
+
+
+
+
