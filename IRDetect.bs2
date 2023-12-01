@@ -1,0 +1,95 @@
+' {$STAMP BS2} ' Stamp directive.
+' {$PBASIC 2.5} ' PBASIC directive.
+' -----[ Variables ]----------------------------------------------------------
+
+irDetectLeft VAR Bit
+irDetectRight VAR Bit
+pulseCount VAR Byte ' FOR...NEXT loop counter.
+
+' -----[ Main Routine ]-------------------------------------------------------
+DO
+
+  FREQOUT 8, 1, 38500
+  irDetectLeft = IN9
+  FREQOUT 2, 1, 38500
+  irDetectRight = IN0
+
+    IF (irDetectLeft = 0) AND (irDetectRight = 0) THEN ' Both ir detect obstacle
+      HIGH 1
+      HIGH 10
+      GOSUB Back_Up ' Back up & U-turn (left twice)
+      'PAUSE 10
+      GOSUB Turn_Around
+      'GOSUB Turn_Left
+
+    ELSEIF (irDetectLeft = 0) THEN
+      HIGH 10
+
+      PAUSE 10
+      GOSUB Turn_Right
+
+
+    ELSEIF (irDetectRight = 0) THEN
+      HIGH 1
+
+      PAUSE 10
+      GOSUB Turn_Left
+
+    ELSEIF (irDetectLeft = 1) AND (irDetectRight = 1) THEN
+      LOW 1
+      LOW 10
+      GOSUB Forward_Pulse ' Apply a forward pulse
+
+
+    DEBUG CRSRXY, 2, 3, BIN1 irDetectLeft,
+    CRSRXY, 9, 3, BIN1 irDetectRight
+
+
+   ELSE
+      LOW 10
+      LOW 1
+  ENDIF
+LOOP
+
+
+
+
+' -----[ Subroutines ]--------------------------------------------------------
+
+Forward_Pulse: ' Send a single forward pulse.
+    PULSOUT 13, 850
+    PULSOUT 12, 650
+
+RETURN
+
+Turn_Left: ' Left turn, about 90-degrees.
+  FOR pulsecount = 0 TO 122
+    PULSOUT 13, 600
+    PULSOUT 12, 600
+    'PAUSE 20
+  NEXT
+RETURN
+
+Turn_Right: ' Right turn, about 90-degrees.
+  FOR pulsecount = 0 TO 122
+    PULSOUT 13, 800
+    PULSOUT 12, 800
+    'PAUSE 20
+  NEXT
+RETURN
+
+Back_Up: ' Back up.
+  FOR pulsecount = 0 TO 40
+    PULSOUT 13, 650
+    PULSOUT 12, 850
+    'PAUSE 20
+  NEXT
+RETURN
+
+Turn_Around:
+  FOR pulsecount = 0 TO 244
+    PULSOUT 13, 800
+    PULSOUT 12, 800
+    PAUSE 20
+  NEXT
+RETURN

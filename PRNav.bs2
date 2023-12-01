@@ -1,0 +1,55 @@
+' {$STAMP BS2} ' Stamp directive.
+' {$PBASIC 2.5} ' PBASIC directive.
+  DEBUG "Program Running!"
+  pulseCount VAR Byte ' FOR...NEXT loop counter.
+  ' -----[ Main Routine ]-------------------------------------------------------
+DO
+  IF (IN6 = 1) AND (IN3 = 1) THEN ' Both photoresistors detects
+    GOSUB Back_Up ' shadow, back up & U-turn
+
+  ELSEIF (IN6 = 1) THEN ' Left photoresistor detects
+    GOSUB Back_Up ' shadow, back up & turn right.
+    GOSUB Turn_Left
+
+  ELSEIF (IN3 = 1) THEN ' Right photoresistor detects
+    GOSUB Back_Up ' shadow, back up & turn left.
+    GOSUB Turn_Right
+
+  ELSE ' Neither photoresistor detects
+    GOSUB Forward_Pulse ' shadow, apply a forward pulse.
+
+  ENDIF
+
+LOOP
+
+
+' -----[ Subroutines ]--------------------------------------------------------
+Forward_Pulse: ' Send a single forward pulse.
+  PULSOUT 12,650
+  PULSOUT 13,850
+  PAUSE 20
+RETURN
+
+Turn_Left: ' Left turn, about 90-degrees.
+  FOR pulseCount = 0 TO 20
+  PULSOUT 12, 650
+  PULSOUT 13, 650
+  PAUSE 20
+  NEXT
+RETURN
+
+Turn_Right:
+  FOR pulseCount = 0 TO 20 ' Right turn, about 90-degrees.
+  PULSOUT 12, 850
+  PULSOUT 13, 850
+  PAUSE 20
+  NEXT
+RETURN
+
+Back_Up: ' Back up.
+  FOR pulseCount = 0 TO 40
+  PULSOUT 12, 850
+  PULSOUT 13, 650
+  PAUSE 20
+  NEXT
+RETURN
